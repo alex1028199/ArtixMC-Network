@@ -1,0 +1,10 @@
+ranks:
+  Member:
+    prefix: "&7[Member] "
+    permissions: []
+  Moderator:
+    prefix: "&a[Moderator] "
+    permissions: []
+  Admin:
+    prefix: "&c[Admin] "
+    permissions: []

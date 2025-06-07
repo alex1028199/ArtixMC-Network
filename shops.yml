@@ -1,0 +1,33 @@
+shops:
+  admin_shop: # Example shop name
+    title: "&1Admin Shop" # GUI Title
+    size: 27 # GUI Size (multiple of 9)
+    items:
+      '0': # Slot index (0-based)
+        material: "DIAMOND"
+        # data: 0 # Optional, for legacy items or specific variants
+        buy_price: 100.0 # Price for player to buy one
+        sell_price: 50.0 # Price for player to sell one
+        quantity: 1 # Optional, default 1, for how many are bought/sold at once
+        display_name: "&bShiny Diamond" # Optional
+        lore: # Optional
+          - "&7Buy for: &f${buy_price}" # Using simple placeholders for now
+          - "&7Sell for: &f${sell_price}"
+      '1':
+        material: "IRON_INGOT"
+        buy_price: 20.0
+        sell_price: 10.0
+        quantity: 1
+        display_name: "&fIron Ingot"
+        lore:
+          - "&7Buy for: &f${buy_price}"
+          - "&7Sell for: &f${sell_price}"
+      '8':
+        material: "BREAD"
+        buy_price: 5.0
+        sell_price: -1 # -1 indicates not sellable
+        quantity: 1
+        display_name: "&6Fresh Bread"
+        lore:
+          - "&7Buy for: &f${buy_price}"
+          - "&7Cannot be sold."

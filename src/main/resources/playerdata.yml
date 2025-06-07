@@ -1,0 +1,5 @@
+# Player rank data will be stored here.
+# Example:
+# players:
+#   xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:
+#     rank: Admin

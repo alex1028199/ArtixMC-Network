@@ -1,0 +1,258 @@
+name: DiamondPlugin
+version: 1.0.0
+main: com.example.diamondplugin.DiamondPlugin
+api-version: '1.21'
+description: A comprehensive utility plugin.
+author: AI Assistant
+commands:
+  diamondplugin:
+    description: Base command for DiamondPlugin.
+    usage: /diamondplugin
+  rank:
+    description: Manages player ranks.
+    usage: /rank <create|delete|setprefix|set|remove|list|checkexpiry>
+    aliases: [ranks]
+  channel:
+    description: Switches player chat channel or shows current channel.
+    usage: /channel [local|global|staff]
+    aliases: [ch]
+  localchat:
+    description: Sends a message to local chat.
+    usage: /localchat <message>
+    aliases: [lc]
+  staffchat:
+    description: Sends a message to staff chat.
+    usage: /staffchat <message>
+    aliases: [sc]
+  globalchat:
+    description: Sends a message to global chat.
+    usage: /globalchat <message>
+    aliases: [gc]
+  mute:
+    description: Mutes a player.
+    usage: /mute <player> [duration] [reason...]
+    permission: diamondplugin.chat.mute
+  unmute:
+    description: Unmutes a player.
+    usage: /unmute <player>
+    permission: diamondplugin.chat.unmute
+  checkmute:
+    description: Checks if a player is muted.
+    usage: /checkmute <player>
+    permission: diamondplugin.chat.checkmute
+  clearchat:
+    description: Clears chat for players.
+    usage: /clearchat [global|self]
+    aliases: [cc]
+  sethome:
+    description: Sets a home location.
+    usage: /sethome [home_name]
+    permission: diamondplugin.command.sethome
+  home:
+    description: Teleports to a home location.
+    usage: /home [home_name]
+    permission: diamondplugin.command.home
+  delhome:
+    description: Deletes a home location.
+    usage: /delhome <home_name>
+    permission: diamondplugin.command.delhome
+  homes:
+    description: Lists your saved homes.
+    usage: /homes
+    aliases: [listhomes]
+    permission: diamondplugin.command.listhomes
+  setspawn:
+    description: Sets the server's spawn point.
+    usage: /setspawn
+    permission: diamondplugin.command.setspawn
+  spawn:
+    description: Teleports you to the server spawn point.
+    usage: /spawn
+    permission: diamondplugin.command.spawn
+  tpa:
+    description: Requests to teleport to another player.
+    usage: /tpa <player_name>
+    permission: diamondplugin.command.tpa
+  tpahere:
+    description: Requests another player to teleport to you.
+    usage: /tpahere <player_name>
+    permission: diamondplugin.command.tpahere
+  tpaccept:
+    description: Accepts a teleport request.
+    usage: /tpaccept [player_name]
+    permission: diamondplugin.command.tpaccept
+  tpdeny:
+    description: Denies a teleport request.
+    usage: /tpdeny [player_name]
+    permission: diamondplugin.command.tpdeny
+  tpcancel:
+    description: Cancels your outgoing teleport request.
+    usage: /tpcancel
+    permission: diamondplugin.command.tpcancel
+  balance:
+    description: Checks a player's balance.
+    usage: /balance [player_name]
+    aliases: [bal, money]
+    permission: diamondplugin.command.balance
+  pay:
+    description: Pays another player.
+    usage: /pay <player_name> <amount>
+    permission: diamondplugin.command.pay
+  eco:
+    description: Manages player balances (admin).
+    usage: /eco <give|take|set|reset> <player_name> [amount]
+    permission: diamondplugin.command.eco
+  shop:
+    description: Opens a shop.
+    usage: /shop [shop_name]
+    permission: diamondplugin.command.shop
+  bank:
+    description: Manages your bank balance.
+    usage: /bank [deposit|withdraw] [amount|all]
+    permission: diamondplugin.command.bank.info
+  claim:
+    description: Main command for land claiming (currently shows tool info).
+    usage: /claim
+    permission: diamondplugin.command.claim
+  unclaim:
+    description: Abandons a claim the player is standing in.
+    usage: /unclaim
+    aliases: [abandonclaim]
+    permission: diamondplugin.command.unclaim
+  claimslist:
+    description: Lists a player's claims.
+    usage: /claimslist
+    aliases: [myclaims]
+    permission: diamondplugin.command.claimslist
+permissions:
+  diamondplugin.rank.admin:
+    description: Allows managing ranks (create, delete, setprefix, checkexpiry).
+    default: op
+  diamondplugin.rank.set:
+    description: Allows setting and removing player ranks.
+    default: op
+  diamondplugin.chat.staffchannel:
+    description: Allows joining/viewing staff chat and using /channel staff.
+    default: op
+  diamondplugin.chat.staffchannel.send:
+    description: Allows sending messages to staff chat using /sc.
+    default: op
+  diamondplugin.chat.switchchannel:
+    description: Allows using /channel to switch chat channels.
+    default: true
+  diamondplugin.chat.spyLocal:
+    description: Allows seeing local chat from any range.
+    default: op
+  diamondplugin.chat.mute:
+    description: Allows muting players.
+    default: op
+  diamondplugin.chat.unmute:
+    description: Allows unmuting players.
+    default: op
+  diamondplugin.chat.checkmute:
+    description: Allows checking a player's mute status.
+    default: op
+  diamondplugin.chat.clearchat.global:
+    description: Allows clearing global chat.
+    default: op
+  diamondplugin.chat.clearchat.self:
+    description: Allows clearing one's own chat.
+    default: true
+  diamondplugin.chat.clearchat.bypass:
+    description: Prevents chat from being cleared for this player.
+    default: op
+  diamondplugin.command.sethome:
+    description: Allows setting a home.
+    default: true
+  diamondplugin.command.home:
+    description: Allows teleporting to a home.
+    default: true
+  diamondplugin.command.delhome:
+    description: Allows deleting a home.
+    default: true
+  diamondplugin.command.listhomes:
+    description: Allows listing homes.
+    default: true
+  diamondplugin.homes.limit.unlimited:
+    description: Allows setting an unlimited number of homes.
+    default: op
+  diamondplugin.homes.limit.1:
+    description: Allows setting up to 1 home.
+    default: true
+  diamondplugin.homes.limit.3:
+    description: Allows setting up to 3 homes.
+    default: false
+  diamondplugin.teleport.nocooldown:
+    description: Bypasses home teleport cooldown.
+    default: op
+  diamondplugin.teleport.nomovepenalty:
+    description: Bypasses teleport cancellation on movement.
+    default: op
+  diamondplugin.command.setspawn:
+    description: Allows setting the server spawn point.
+    default: op
+  diamondplugin.command.spawn:
+    description: Allows teleporting to the server spawn point.
+    default: true
+  diamondplugin.command.tpa:
+    description: Allows sending TPA requests.
+    default: true
+  diamondplugin.command.tpahere:
+    description: Allows sending TPAHere requests.
+    default: true
+  diamondplugin.command.tpaccept:
+    description: Allows accepting TPA requests.
+    default: true
+  diamondplugin.command.tpdeny:
+    description: Allows denying TPA requests.
+    default: true
+  diamondplugin.command.tpcancel:
+    description: Allows cancelling outgoing TPA requests.
+    default: true
+  diamondplugin.command.balance:
+    description: Allows checking one's own balance.
+    default: true
+  diamondplugin.command.balance.others:
+    description: Allows checking other players' balances.
+    default: op
+  diamondplugin.command.pay:
+    description: Allows paying other players.
+    default: true
+  diamondplugin.command.eco:
+    description: Allows admin management of economy.
+    default: op
+  diamondplugin.command.shop:
+    description: Allows opening and using shops.
+    default: true
+  diamondplugin.command.bank.info:
+    description: Allows viewing bank balance and basic usage.
+    default: true
+  diamondplugin.command.bank.deposit:
+    description: Allows depositing funds into the bank.
+    default: true
+  diamondplugin.command.bank.withdraw:
+    description: Allows withdrawing funds from the bank.
+    default: true
+  diamondplugin.command.claim:
+    description: Allows using the claim tool and basic claim commands.
+    default: true
+  diamondplugin.command.unclaim:
+    description: Allows unclaiming owned land.
+    default: true
+  diamondplugin.command.claimslist:
+    description: Allows listing own claims.
+    default: true
+  diamondplugin.admin.unclaim:
+    description: Allows unclaiming any land (admin).
+    default: op
+  diamondplugin.claim.limit.unlimited:
+    description: Allows unlimited land claims.
+    default: op
+  diamondplugin.claim.limit.3:
+    description: Allows up to 3 land claims.
+    default: true # Default for most players might be a small number, or 1 from ClaimConfig
+  diamondplugin.admin.bypassclaims:
+    description: Allows bypassing claim protection for breaking/placing blocks.
+    default: op
+# Note: Specific numeric limits like diamondplugin.claim.limit.1, .5, .10 will be checked by ClaimManager dynamically.
+# It's good to define a base one like .3 or rely on the configured default if no specific limit perm is found.

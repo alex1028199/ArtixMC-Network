@@ -1,0 +1,19 @@
+# DiamondPlugin Claims Data
+# This file stores all player land claims.
+# Structure:
+# claims:
+#   <claimID_uuid_string>:
+#     owner: "owner_uuid_string"
+#     world: "world_name"
+#     x1: 100
+#     z1: 200
+#     x2: 150
+#     z2: 250
+#     creationDate: 1678886400000
+#     trusted: # List of UUIDs
+#       - "trusted_player_uuid_string"
+#     flags: # Map of flag_name: boolean
+#       pvp: false
+#       use: true
+
+claims: {} # Start with an empty claims section
